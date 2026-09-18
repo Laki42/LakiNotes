@@ -1,0 +1,12 @@
+<settings-container id="settings-root" active="false">
+  <text text="Laki Notes" font-size="6" align="Center" preferred-height="9" />
+  <toggle-setting id="enabled-control" text="Enable Laki Notes" value="enabled" apply-on-change="true" />
+  <toggle-setting id="effects-control" text="Enable Effects" value="effects" apply-on-change="true" />
+  <toggle-setting id="rare-control" text="Enable Rare Laki Notes" value="rare" apply-on-change="true" />
+  <toggle-setting id="multiplayer-control" text="Enable in Multiplayer" value="multiplayer" apply-on-change="true" />
+  <dropdown-list-setting id="test-mode-control" text="Test Mode" value="test-mode" options="test-mode-options" apply-on-change="true" />
+  <text text="Test Mode: one play only. Pity is unchanged." font-size="3" align="Center" preferred-height="6" />
+  <text text="Changes apply to your next play." font-size="3" align="Center" preferred-height="6" />
+  <text text="Multiplayer+ 6.4.2 supported; native Multiplayer disabled." font-size="3" align="Center" preferred-height="6" />
+</settings-container>
+
