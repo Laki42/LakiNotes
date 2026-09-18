@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+  "id": "Laki",
+  "name": "Laki Notes",
+  "author": "Aki",
+  "version": "0.1.4",
+  "description": "A tiny moment of luck. Local-only clover, rainbow and moon note cosmetics.",
+  "gameVersion": "1.40.8",
+  "dependsOn": {
+    "BSIPA": "^4.3.6",
+    "SiraUtil": "^3.2.1",
+    "BeatSaberMarkupLanguage": "^1.12.5"
+  }
+}
+
+

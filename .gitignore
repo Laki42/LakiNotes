@@ -1,0 +1,11 @@
+obj/
+dist/
+diagnostic-no-gameplay/
+.vs/
+*.user
+*.dll
+*.exe
+*.pdb
+*.log
+*.log.gz
+UserData/

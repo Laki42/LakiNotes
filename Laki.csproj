@@ -1,0 +1,37 @@
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <GameDir Condition="'$(GameDir)' == ''">F:\1.40.8</GameDir>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AssemblyName>Laki</AssemblyName>
+    <RootNamespace>Laki</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Optimize>true</Optimize>
+    <Deterministic>true</Deterministic>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <OutputPath>dist\Plugins\</OutputPath>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="$(GameDir)\Beat Saber_Data\Managed\*.dll"><Private>false</Private></Reference>
+    <Reference Include="$(GameDir)\Plugins\SiraUtil.dll"><Private>false</Private></Reference>
+    <Reference Include="$(GameDir)\Plugins\BSML.dll"><Private>false</Private></Reference>
+    <Reference Include="$(GameDir)\Libs\Hive.Versioning.dll"><Private>false</Private></Reference>
+    <Compile Include="Source\*.cs" />
+    <EmbeddedResource Include="manifest.json"><LogicalName>Laki.manifest.json</LogicalName></EmbeddedResource>
+    <EmbeddedResource Include="Resources\Settings.bsml"><LogicalName>Laki.Settings.bsml</LogicalName></EmbeddedResource>
+  </ItemGroup>
+  <!-- Compile against Unity's actual reference set, without downloading a framework
+       targeting pack or invoking a mod deployment task. Build.ps1 is an alternative. -->
+  <UsingTask TaskName="Microsoft.CodeAnalysis.BuildTasks.Csc" AssemblyFile="$(MSBuildToolsPath)\Roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+  <Target Name="Build">
+    <MakeDir Directories="$(OutputPath)" />
+    <Csc Sources="@(Compile)" References="@(Reference)" Resources="@(EmbeddedResource)"
+         OutputAssembly="$(OutputPath)Laki.dll" TargetType="Library" NoStandardLib="true"
+         NoConfig="true" Optimize="true" Deterministic="true" LangVersion="latest"
+         WarningLevel="4" TreatWarningsAsErrors="true" ToolPath="$(MSBuildToolsPath)\Roslyn" />
+  </Target>
+  <Target Name="Rebuild" DependsOnTargets="Build" />
+</Project>
